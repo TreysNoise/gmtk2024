@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2cpquwo12c8c"]
+
+[ext_resource type="Texture2D" uid="uid://bd8untx5yrq2s" path="res://assets/other/kloppenheim_07_puresky_1k.exr" id="1_0npko"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mjuis"]
+panorama = ExtResource("1_0npko")
+
+[sub_resource type="Sky" id="Sky_xal5h"]
+sky_material = SubResource("PanoramaSkyMaterial_mjuis")
+
+[sub_resource type="Environment" id="Environment_ofhxj"]
+background_mode = 2
+sky = SubResource("Sky_xal5h")
+fog_enabled = true
+fog_mode = 1
+fog_density = 1.0
+fog_depth_curve = 7.46426
+
+[node name="Weather" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ofhxj")

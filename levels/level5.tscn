@@ -1,0 +1,321 @@
+[gd_scene load_steps=36 format=3 uid="uid://d07ddi1bb0t4v"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_m40jh"]
+[ext_resource type="MeshLibrary" uid="uid://dueo3p7wb7mte" path="res://resources/cityscape.tres" id="2_2syui"]
+[ext_resource type="Texture2D" uid="uid://dwjtx0urr5kub" path="res://assets/textures/concrete/concrete_col.png" id="3_ua0xy"]
+[ext_resource type="PackedScene" uid="uid://cwk4w1hkeyavg" path="res://entities/window/window.tscn" id="4_a35a8"]
+[ext_resource type="PackedScene" uid="uid://dhsnjfdlsi6f6" path="res://entities/elevator_door/left_door.tscn" id="5_306ld"]
+[ext_resource type="PackedScene" uid="uid://bj852etjbtg3i" path="res://entities/elevator_door/right_door.tscn" id="6_2ou2c"]
+[ext_resource type="PackedScene" uid="uid://wmb7l5tftln7" path="res://assets/models/ceiling.glb" id="7_oufi8"]
+[ext_resource type="PackedScene" uid="uid://bgcdfgovsc7av" path="res://assets/models/floorplan.glb" id="8_ddy2k"]
+[ext_resource type="Texture2D" uid="uid://dy15y7kqaerdi" path="res://assets/models/floorplan_Poliigon_PlasterPainted_7664_Normal.jpg" id="9_iybj6"]
+[ext_resource type="PackedScene" uid="uid://bouguvpyq5skw" path="res://entities/office_stuff/table.tscn" id="10_d1x32"]
+[ext_resource type="PackedScene" uid="uid://exxotb6t8h6m" path="res://entities/office_stuff/chair.tscn" id="11_gs43u"]
+[ext_resource type="PackedScene" uid="uid://b16q8n6oowdvr" path="res://assets/Office Pack-dook/Whiteboard.glb" id="12_1ky0g"]
+[ext_resource type="PackedScene" uid="uid://ceosicfngamjc" path="res://assets/Office Pack-dook/Wall Art 06.glb" id="13_ptgrv"]
+[ext_resource type="PackedScene" uid="uid://cb57wbkj80u71" path="res://assets/Office Pack-dook/Wall Art 05.glb" id="14_ips10"]
+[ext_resource type="PackedScene" uid="uid://y2xigi4kmiex" path="res://entities/office_stuff/desk.tscn" id="15_cb16e"]
+[ext_resource type="PackedScene" uid="uid://dc0ti0splvdhw" path="res://assets/Office Pack-dook/Computer.glb" id="16_m3sdw"]
+[ext_resource type="PackedScene" uid="uid://87c7gx48hfcc" path="res://assets/Office Pack-dook/Calendar-8GqQAqxi3qk.glb" id="17_x1cl5"]
+[ext_resource type="PackedScene" uid="uid://iv1fr42cp20a" path="res://entities/office_stuff/big_plant.tscn" id="18_v2awe"]
+[ext_resource type="PackedScene" uid="uid://bsg8u2ux668yf" path="res://entities/office_stuff/couch.tscn" id="19_waisd"]
+[ext_resource type="PackedScene" uid="uid://oqpovy7ibcnf" path="res://entities/office_stuff/printer.tscn" id="20_bryfo"]
+[ext_resource type="PackedScene" uid="uid://bsbjaccy3u5c" path="res://entities/office_stuff/wall_shelf.tscn" id="21_u3bfi"]
+[ext_resource type="PackedScene" uid="uid://8keugkri4tym" path="res://assets/Office Pack-dook/MS Gundam RX-78-2 with weapons.glb" id="22_t2uk5"]
+[ext_resource type="PackedScene" uid="uid://vxrms6jxv5hj" path="res://assets/Office Pack-dook/Houseplant.glb" id="23_vbew0"]
+[ext_resource type="PackedScene" uid="uid://7rcar0yyn7ms" path="res://assets/Office Pack-dook/Plant - White Pot.glb" id="24_ipy4t"]
+[ext_resource type="PackedScene" uid="uid://wp4h805ndfd7" path="res://assets/office_objects/Laptop.glb" id="25_jm73m"]
+[ext_resource type="PackedScene" uid="uid://cmbotrmcef87r" path="res://entities/player/big_player.tscn" id="26_makuo"]
+[ext_resource type="PackedScene" uid="uid://dkaobxh68jldu" path="res://entities/money/money.tscn" id="27_04fn6"]
+[ext_resource type="PackedScene" uid="uid://dbv6pmwxusqhs" path="res://entities/security_camera/security_camera.tscn" id="28_p6wgg"]
+[ext_resource type="PackedScene" uid="uid://c2cpquwo12c8c" path="res://helper_scenes/weather.tscn" id="29_7idlc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hwq6u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ui735"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6io7j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxp00"]
+albedo_texture = ExtResource("3_ua0xy")
+normal_texture = SubResource("CompressedTexture2D_6io7j")
+ao_enabled = true
+ao_texture = SubResource("CompressedTexture2D_hwq6u")
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_ui735")
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e3gg2"]
+material = SubResource("StandardMaterial3D_mxp00")
+size = Vector2(300, 300)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8ff0"]
+normal_enabled = true
+normal_texture = ExtResource("9_iybj6")
+uv1_triplanar = true
+
+[node name="Level5" type="Node3D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_m40jh")
+floor_title = "5: Executive Suite"
+next_floor = "roof"
+player = NodePath("BigPlayer")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -1, 0)
+mesh_library = ExtResource("2_2syui")
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(0, 1, 0, 65535, 1, 26, 65535, 65534, 27, 0, 65534, 24, 2, 1, 23, 65534, 0, 1441822, 65533, 65534, 1048607, 65534, 65535, 1048596, 65534, 65534, 1048602, 65530, 2, 1048602, 65530, 65533, 1048602, 65533, 65531, 1048602, 2, 65530, 1048602, 4, 65533, 1048602, 1, 5, 1048602, 65531, 6, 1048602, 6, 4, 26, 0, 65529, 26, 65531, 65529, 1441818, 65531, 65531, 1441816, 1, 65531, 655384, 65532, 3, 1048600, 65535, 6, 1048598, 6, 65535, 22, 65535, 65531, 21, 65530, 65535, 1441813, 65533, 2, 655381, 2, 65535, 1048597, 1, 65533, 1048597, 0, 65532, 1048598, 1, 65535, 1048582, 0, 2, 1441798, 1, 0, 1441797, 65533, 65535, 5, 65534, 1, 1441792, 65535, 65533, 1441793, 2, 65534, 1441794, 65533, 0, 1441795, 1, 2, 1441795, 3, 0, 655363, 2, 0, 1048580, 65533, 1, 5, 65534, 65533, 5, 1, 1, 2, 0, 65533, 0, 1, 65534, 8, 2, 65533, 6, 3, 65535, 1048582, 65532, 1, 655366, 65532, 65534, 1441798, 65533, 65533, 655366, 65535, 2, 1048581, 65534, 2, 5, 65532, 2, 5, 65532, 0, 655365, 65532, 65535, 655368, 65531, 65535, 1048581, 65531, 0, 1048581, 2, 3, 1048599, 4, 1, 23, 4, 65535, 1441815, 3, 65532, 1441815, 65535, 65532, 655383, 65531, 65532, 1048599, 65534, 65530, 1048599, 65535, 65530, 23, 65533, 4, 23, 65534, 5, 1441815, 0, 4, 655383, 3, 5, 655382, 6, 3, 655382, 7, 1, 655382, 7, 65533, 655382, 5, 65531, 655382, 3, 65529, 655382, 5, 65533, 655384, 5, 1, 655385, 6, 65534, 655385, 65534, 65532, 655385, 65534, 3, 655385, 3, 3, 655385, 3, 65530, 655385, 65531, 65533, 655385, 65531, 4, 655385, 3, 2, 655385, 2, 2, 655386, 3, 1, 655383, 65534, 4, 655386, 1, 4, 1048602, 4, 2, 26, 4, 65534, 1441818, 2, 65532, 1441818, 1, 3, 655387, 65535, 4, 655387, 4, 5, 655387, 5, 65535, 1048603, 5, 65532, 27, 3, 65531, 1441819, 1, 65530, 1441819, 6, 2, 1441823, 6, 0, 655391, 4, 65531, 31, 65533, 65530, 31, 65530, 1, 1048607, 65530, 3, 655381, 65535, 5, 1441824, 65533, 3, 655392, 65535, 3, 655392, 1, 65532, 655360, 0, 65530, 655360, 6, 65533, 1048576, 5, 4, 1048576, 2, 5, 0, 0, 6, 0, 65532, 5, 1441792, 65532, 4, 1441796, 65531, 2, 655364, 65531, 65534, 655364, 65533, 65532, 655364, 65534, 65531, 655364, 4, 65532, 655364, 6, 65531, 1441798, 4, 65529, 6, 65533, 65529, 6, 5, 5, 7, 5, 3, 7, 5, 2, 7, 5, 65534, 7, 2, 65531, 3, 0, 65531, 7, 65532, 65532, 7, 65533, 5, 1441806, 0, 5, 7, 1, 6, 7, 4, 6, 0, 3, 6, 9, 2, 6, 3, 4, 4, 12, 3, 4, 13, 2, 4, 14, 5, 0, 15, 3, 65533, 18, 3, 65534, 19, 65530, 65534, 21, 65530, 0, 21, 65534, 6, 1441813, 65532, 65530, 655381, 65530, 65532, 655381, 65535, 65529, 655377, 65535, 65528, 655386, 0, 65528, 655387, 1, 65528, 655360, 65534, 65528, 655381, 2, 65529, 1048597, 1, 65529, 1048598, 65534, 65529, 1048595, 65532, 65529, 1048595, 65529, 65535, 1048608, 65528, 65535, 1048608, 65528, 0, 8, 65529, 0, 1048576, 65528, 65534, 1048576, 65528, 1, 1048602, 65529, 1, 1441813, 65529, 2, 1048608, 65529, 3, 1048608, 65529, 4, 1048576, 65529, 65534, 1048608, 65529, 65533, 1048576, 65529, 65532, 1048608, 65529, 65531, 1441800, 65530, 65530, 1048576, 65530, 5, 8, 65532, 6, 1048608, 65533, 6, 1048597, 65534, 7, 1048608, 65535, 7, 1048597, 0, 7, 1048608, 1, 7, 0, 7, 0, 1048608, 7, 65535, 1441792, 7, 65534, 1048608, 6, 65532, 1048608, 5, 65530, 1048608, 65531, 3, 1048576, 65531, 5, 1048579, 65530, 4, 3, 4, 3, 3, 4, 0, 3, 4, 65530, 3, 65531, 65530, 1048602, 65532, 65531, 1441800, 6, 1, 1048602, 65530, 65531, 1048602)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_e3gg2")
+skeleton = NodePath("../..")
+
+[node name="OfficeFloor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="Windows" type="Node3D" parent="OfficeFloor"]
+
+[node name="Window1" parent="OfficeFloor/Windows" instance=ExtResource("4_a35a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2563, 2.01599, -5.24224)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="Window2" parent="OfficeFloor/Windows" instance=ExtResource("4_a35a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2563, 2.01599, 5.25353)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="Window3" parent="OfficeFloor/Windows" instance=ExtResource("4_a35a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2324, 2.01599, -5.24224)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="Window4" parent="OfficeFloor/Windows" instance=ExtResource("4_a35a8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2324, 2.01599, 5.25353)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="Window5" parent="OfficeFloor/Windows" instance=ExtResource("4_a35a8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2405, 2.01599, 10.2522)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="Window6" parent="OfficeFloor/Windows" instance=ExtResource("4_a35a8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.25527, 2.01599, 10.2522)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="Window7" parent="OfficeFloor/Windows" instance=ExtResource("4_a35a8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2405, 2.01599, -10.2827)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="Window8" parent="OfficeFloor/Windows" instance=ExtResource("4_a35a8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.25527, 2.01599, -10.2827)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="LeftDoor" parent="OfficeFloor" instance=ExtResource("5_306ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27564, 1.46804, 1.77982)
+
+[node name="RightDoor" parent="OfficeFloor" instance=ExtResource("6_2ou2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26254, 1.5, -1.76513)
+end_door = true
+
+[node name="ceiling" parent="OfficeFloor" instance=ExtResource("7_oufi8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.93064, 0)
+
+[node name="floorplan" parent="OfficeFloor" instance=ExtResource("8_ddy2k")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="OfficeFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51958, 2.07721, 0)
+use_collision = true
+size = Vector3(7.09937, 4.15442, 0.187256)
+material = SubResource("StandardMaterial3D_c8ff0")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="OfficeFloor"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.90585, 2.07721, 5.24608)
+use_collision = true
+size = Vector3(4.51485, 4.15442, 0.187256)
+material = SubResource("StandardMaterial3D_c8ff0")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="OfficeFloor"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.90585, 2.07721, -5.24948)
+use_collision = true
+size = Vector3(4.51485, 4.15442, 0.187256)
+material = SubResource("StandardMaterial3D_c8ff0")
+
+[node name="OfficeProps" type="Node3D" parent="OfficeFloor"]
+
+[node name="bigtable" type="Node3D" parent="OfficeFloor/OfficeProps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.477316, 0, -0.942645)
+
+[node name="Table" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("10_d1x32")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.53398, 0, 3.36953)
+
+[node name="Table2" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("10_d1x32")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.29155, 0, 3.36953)
+
+[node name="Table3" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("10_d1x32")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.53398, 0, 0.991817)
+
+[node name="Table4" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("10_d1x32")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.29155, 0, 0.991817)
+
+[node name="Table5" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("10_d1x32")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.53398, 0, -1.38725)
+
+[node name="Table6" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("10_d1x32")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.29155, 0, -1.38725)
+
+[node name="Chair2" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.03188, 0, 3.8445)
+
+[node name="Chair3" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.03188, 0, 2.84019)
+
+[node name="Chair4" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.03188, 0, 1.49748)
+
+[node name="Chair5" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.03188, 0, 0.49317)
+
+[node name="Chair6" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.03188, 0, -0.773131)
+
+[node name="Chair7" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.03188, 0, -1.77744)
+
+[node name="Chair8" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.81585, 0, -1.80291)
+
+[node name="Chair9" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.81585, 0, -0.798603)
+
+[node name="Chair10" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.81585, 0, 0.544113)
+
+[node name="Chair11" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.81585, 0, 1.54842)
+
+[node name="Chair12" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.81585, 0, 2.81472)
+
+[node name="Chair13" parent="OfficeFloor/OfficeProps/bigtable" instance=ExtResource("11_gs43u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.81585, 0, 3.81903)
+
+[node name="Wall Art 05" parent="OfficeFloor/OfficeProps" instance=ExtResource("14_ips10")]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, 3.02161, 2.15653, -5.22984)
+
+[node name="Desk" parent="OfficeFloor/OfficeProps" instance=ExtResource("15_cb16e")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -0.0620492, 0, 4.91855)
+
+[node name="Chair" parent="OfficeFloor/OfficeProps" instance=ExtResource("11_gs43u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.971266, 0, 4.60966)
+
+[node name="Computer" parent="OfficeFloor/OfficeProps" instance=ExtResource("16_m3sdw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0711606, 0.860001, 4.47552)
+
+[node name="Calendar-8GqQAqxi3qk" parent="OfficeFloor/OfficeProps" instance=ExtResource("17_x1cl5")]
+transform = Transform3D(-0.0347077, 0, 0.999398, 0, 1, 0, -0.999398, 0, -0.0347077, -0.00489667, 0.860001, 5.39575)
+
+[node name="BigPlant" parent="OfficeFloor/OfficeProps" instance=ExtResource("18_v2awe")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.44341, 0, 3.65921)
+
+[node name="Couch" parent="OfficeFloor/OfficeProps" instance=ExtResource("19_waisd")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.4628, 0, -9.23137)
+
+[node name="BigPlant2" parent="OfficeFloor/OfficeProps" instance=ExtResource("18_v2awe")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -9.20707, 0, -9.23825)
+
+[node name="Couch2" parent="OfficeFloor/OfficeProps" instance=ExtResource("19_waisd")]
+transform = Transform3D(-0.7, 0, -6.11959e-08, 0, 0.7, 0, 6.11959e-08, 0, -0.7, -7.4628, 0, 9.2743)
+
+[node name="BigPlant3" parent="OfficeFloor/OfficeProps" instance=ExtResource("18_v2awe")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -9.20707, 0, 9.26742)
+
+[node name="Printer" parent="OfficeFloor/OfficeProps" instance=ExtResource("20_bryfo")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.91345, 0.982321, -4.09391)
+
+[node name="Desk2" parent="OfficeFloor/OfficeProps" instance=ExtResource("15_cb16e")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -2.21579, 0, -3.70573)
+
+[node name="Chair2" parent="OfficeFloor/OfficeProps" instance=ExtResource("11_gs43u")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.908098, 0, -4.32844)
+
+[node name="Wall Shelf" parent="OfficeFloor/OfficeProps" instance=ExtResource("21_u3bfi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.29006, 1.93494, -5.9617)
+
+[node name="MS Gundam RX-78-2 with weapons" parent="OfficeFloor/OfficeProps" instance=ExtResource("22_t2uk5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.38854, 2.91948, -5.33587)
+
+[node name="Root Scene" parent="OfficeFloor/OfficeProps" instance=ExtResource("23_vbew0")]
+transform = Transform3D(0.0735864, 0, 0.997289, 0, 1, 0, -0.997289, 0, 0.0735864, 2.49661, 2.24244, -6.92449)
+
+[node name="Plant - White Pot" parent="OfficeFloor/OfficeProps" instance=ExtResource("24_ipy4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40142, 2.47388, -6.34007)
+
+[node name="Laptop" parent="OfficeFloor/OfficeProps" instance=ExtResource("25_jm73m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.75131, 0.860001, -4.00763)
+
+[node name="Whiteboard" parent="OfficeFloor/OfficeProps" instance=ExtResource("12_1ky0g")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.99217, 1.16469, 0.0118668)
+
+[node name="Wall Art 06" parent="OfficeFloor/OfficeProps" instance=ExtResource("13_ptgrv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, 3.02068, 2.16053, 5.39735)
+
+[node name="BigPlayer" parent="." instance=ExtResource("26_makuo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.74284, 20, 1.72769)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -11.5
+offset_right = 21.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Label"
+
+[node name="Money" parent="." instance=ExtResource("27_04fn6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.42525, 20.1985, -0.0286382)
+
+[node name="SecurityCamera2" parent="." instance=ExtResource("28_p6wgg")]
+transform = Transform3D(7.35137e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 7.35137e-08, 4.65483, 23.5958, -2.14144)
+animation_offset = 2
+
+[node name="SecurityCamera3" parent="." instance=ExtResource("28_p6wgg")]
+transform = Transform3D(-2.98023e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.98023e-08, 8.41976, 23.5958, 1.8856)
+animation_offset = 4
+
+[node name="SecurityCamera4" parent="." instance=ExtResource("28_p6wgg")]
+transform = Transform3D(7.35137e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 7.35137e-08, 4.65483, 23.5958, 6.2303)
+animation_offset = 6
+
+[node name="SecurityCamera6" parent="." instance=ExtResource("28_p6wgg")]
+transform = Transform3D(-0.49988, 0, -0.0109423, 0, 0.5, 0, 0.0109423, 0, -0.49988, -0.320249, 23.5958, 9.56555)
+animation_offset = 6
+
+[node name="SecurityCamera7" parent="." instance=ExtResource("28_p6wgg")]
+transform = Transform3D(-0.322756, 0, -0.381875, 0, 0.5, 0, 0.381875, 0, -0.322756, 2.43133, 23.5958, -3.44192)
+animation_offset = 6
+
+[node name="SecurityCamera8" parent="." instance=ExtResource("28_p6wgg")]
+transform = Transform3D(0.353103, 0, 0.354004, 0, 0.5, 0, -0.354004, 0, 0.353103, -9.4088, 23.5958, -8.11127)
+animation_offset = 6
+
+[node name="SecurityCamera9" parent="." instance=ExtResource("28_p6wgg")]
+transform = Transform3D(0.353103, 0, 0.354004, 0, 0.5, 0, -0.354004, 0, 0.353103, -9.54777, 23.5958, 0.61597)
+animation_offset = 6
+
+[node name="SecurityCamera5" parent="." instance=ExtResource("28_p6wgg")]
+transform = Transform3D(-2.98023e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.98023e-08, 8.41976, 23.5958, -6.07316)
+
+[node name="Weather" parent="." instance=ExtResource("29_7idlc")]
+
+[connection signal="player_entered_elevator" from="OfficeFloor/LeftDoor" to="." method="_on_right_door_player_entered_elevator"]
+[connection signal="player_entered_elevator" from="OfficeFloor/RightDoor" to="." method="_on_right_door_player_entered_elevator"]

@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmbotrmcef87r"]
+
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_ejr2g"]
+[ext_resource type="Theme" uid="uid://d20j2stg43jmk" path="res://resources/main_theme.tres" id="2_y7v3o"]
+[ext_resource type="Texture2D" uid="uid://cgkbls3nps5iv" path="res://assets/textures/money.png" id="3_lhg2k"]
+
+[sub_resource type="Animation" id="Animation_i3gti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Flash:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s43hv"]
+resource_name = "flash"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Flash:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ci01o"]
+_data = {
+"RESET": SubResource("Animation_i3gti"),
+"flash": SubResource("Animation_s43hv")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhe3i"]
+radius = 0.4
+
+[node name="BigPlayer" type="CharacterBody3D"]
+script = ExtResource("1_ejr2g")
+player_jump_force = 200
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+current = true
+fov = 90.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ci01o")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_nhe3i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Flash" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Container" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -85.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 45.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="MoneyCount" type="Label" parent="CanvasLayer/Container"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_y7v3o")
+text = "n/n"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Container"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_lhg2k")
+expand_mode = 3
+stretch_mode = 3

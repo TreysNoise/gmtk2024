@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b38uaar4mglq2"]
+
+[ext_resource type="PackedScene" uid="uid://dvumvomsfa5np" path="res://levels/lobby.tscn" id="1_d3vk6"]
+[ext_resource type="Script" path="res://scripts/victory_zone.gd" id="2_2fxdf"]
+[ext_resource type="PackedScene" uid="uid://dkaobxh68jldu" path="res://entities/money/money.tscn" id="2_khca6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gb0xi"]
+size = Vector3(1, 0.820313, 2.98438)
+
+[node name="Level" instance=ExtResource("1_d3vk6")]
+
+[node name="LeftDoor" parent="OfficeFloor" index="2"]
+end_door = false
+wait_for_call = false
+
+[node name="RightDoor" parent="OfficeFloor" index="3"]
+end_door = false
+wait_for_call = false
+
+[node name="Money" parent="OfficeFloor" index="38" instance=ExtResource("2_khca6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.23609, 0, -9.72979)
+
+[node name="BigPlayer" parent="." index="3"]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 9.14373, -1.19209e-07, -1.73409)
+player_move_speed = 150
+player_jump_force = 150
+
+[node name="VictoryZone" type="Area3D" parent="." index="7" node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.50216, 0.507376, 0)
+script = ExtResource("2_2fxdf")
+player = NodePath("../BigPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VictoryZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0898438, 0)
+shape = SubResource("BoxShape3D_gb0xi")
+
+[connection signal="body_entered" from="VictoryZone" to="VictoryZone" method="_on_body_entered"]

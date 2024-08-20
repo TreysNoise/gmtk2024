@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cexsbifoxnyad"]
+
+[ext_resource type="PackedScene" uid="uid://d07ddi1bb0t4v" path="res://levels/level5.tscn" id="1_gr4u2"]
+
+[node name="Level" instance=ExtResource("1_gr4u2")]
+next_floor = "level4_down"
+
+[node name="LeftDoor" parent="OfficeFloor" index="1"]
+end_door = true
+
+[node name="RightDoor" parent="OfficeFloor" index="2"]
+end_door = false
+
+[node name="BigPlayer" parent="." index="4"]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -1.74284, 20, -1.90915)
+player_move_speed = 150
+player_jump_force = 150

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://di7r1t8510bj5"]
+
+[ext_resource type="PackedScene" uid="uid://cmbotrmcef87r" path="res://entities/player/big_player.tscn" id="1_l0vrx"]
+
+[node name="SmallPlayer" instance=ExtResource("1_l0vrx")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+player_move_speed = 150
+player_jump_force = 150

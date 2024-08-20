@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3314rk6y2yg5"
+path="res://.godot/imported/Seven Off.mp3-ebf19a918887309f729e8eab2d845bda.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/Seven Off.mp3"
+dest_files=["res://.godot/imported/Seven Off.mp3-ebf19a918887309f729e8eab2d845bda.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

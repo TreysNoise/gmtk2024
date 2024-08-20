@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwk4w1hkeyavg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ki8dr"]
+transparency = 1
+albedo_color = Color(0.482353, 1, 1, 0.376471)
+
+[node name="Window" type="CSGBox3D"]
+material = SubResource("StandardMaterial3D_ki8dr")

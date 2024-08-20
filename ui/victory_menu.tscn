@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca3xpdernksc7"]
+
+[ext_resource type="Script" path="res://ui/victory_menu.gd" id="1_fc8cx"]
+[ext_resource type="Texture2D" uid="uid://cgkbls3nps5iv" path="res://assets/textures/money.png" id="2_tbl67"]
+[ext_resource type="Theme" uid="uid://d20j2stg43jmk" path="res://resources/main_theme.tres" id="2_uylyb"]
+
+[node name="VictoryMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fc8cx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(2.58703e-07, 0.203756, 0.026938, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tbl67")
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -24.0
+offset_right = 101.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_uylyb")
+text = "You collected
+%s stack%s of cash!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_uylyb")
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

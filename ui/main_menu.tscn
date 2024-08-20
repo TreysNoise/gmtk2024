@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://l4bwntbiswdb"]
+
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_2jout"]
+[ext_resource type="Theme" uid="uid://d20j2stg43jmk" path="res://resources/main_theme.tres" id="2_ywx3k"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2jout")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_ywx3k")
+text = "Skyscraper Heist"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_ywx3k")
+text = "Start!"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("2_ywx3k")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 248.0
+offset_top = 150.0
+offset_right = 358.0
+offset_bottom = 198.0
+theme = ExtResource("2_ywx3k")
+theme_override_font_sizes/font_size = 10
+text = "Movement: WASD
+Jump: Space
+Camera: Mouse
+"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=4 uid="uid://mp0270x8lggq"]
+
+[ext_resource type="Shader" path="res://entities/security_camera/security_camera.gdshader" id="1_2b84m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfflq"]
+render_priority = 0
+shader = ExtResource("1_2b84m")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o6kaq"]
+_surfaces = [{
+"aabb": AABB(-1.96645, -3.5, -1.96645, 3.93291, 6, 3.93291),
+"format": 34896613377,
+"index_count": 90,
+"index_data": PackedByteArray("AAABABAAAQACABAAAgADABAAAwAEABAABAAFABAABQAGABAABgAHABAABwAIABAACAAJABAACQAKABAACgALABAACwAMABAADAANABAADQAOABAADwABAAAAAQADAAIAAwAFAAQABQAHAAYABwAJAAgACQALAAoACwANAAwADQAPAA4ADwADAAEAAwAHAAUABwALAAkACwAPAA0ADwAHAAMABwAPAAsADgAPABAADwAAABAA"),
+"lods": [0.856901, PackedByteArray("DwADABAADgAPABAADQAOABAADAANABAACgAMABAACQAKABAABQAJABAABAAFABAAAwAEABAAAwAFAAQAAwAJAAUADwAJAAMACQAPAAwACQAMAAoADAAPAA0ADQAPAA4A")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 17,
+"vertex_data": PackedByteArray("/38AAAAAAAD7sAAAvgkAAIHaAAB9JQAAQPYAAANPAAD//wAA/38AAED2AAD7sAAAgdoAAIHaAAD7sAAAQPYAAP9/AAD//wAAA08AAED2AAB9JQAAgdoAAL4JAAD7sAAAAAAAAP9/AAC+CQAAA08AAH0lAAB9JQAAA08AAL4JAAD/f////38AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n0p0p"]
+resource_name = "cone_Cone"
+_surfaces = [{
+"aabb": AABB(-1.96645, -3.5, -1.96645, 3.93291, 6, 3.93291),
+"attribute_data": PackedByteArray("/7+Ogv8/joL/P46Cgtc8h4JXPIeCVzyHcOuNlHFrjZRxa42Uwvh8qMJ4fKjCeHyob/3/v3B9/79wff+/wviC18J4gtfCeILXcOtw63FrcOtxa3DrgtfC+IJXwviCV8L4/79v/f8/b/3/P2/9fKjC+Hwowvh8KML4jZRw644UcOuOFHDrPIeC1zwHgtc8B4LXjoL/v48C/7+PAv+/PId8qDwHfKg8B3yojZSNlI4UjZSOFI2UfKg8h3woPId8KDyH/z//v/8//7//P/+//z//v/8//7//P/+//z//v/8//7//P/+//z//v/8//7//P/+//z//v/8//7//P/+//z//v8J4fKh8KML4/z//v/8//7//P/+//z//vw=="),
+"format": 34896613399,
+"index_count": 90,
+"index_data": PackedByteArray("AQAEADEABQAHADMACAAKADUACwAOADcADQARADYAEAAUADQAEwAXADIAFgAZADAAGgAcADgAHQAfADoAIAAiADwAIwAlAD4AJgApAD8AKAAsAD0ALQADAAAAAwAJAAYACQAPAAwADwAVABIAFQAbABgAGwAhAB4AIQAnACQAJwAtACoALQAJAAMACQAVAA8AFQAhABsAIQAtACcALQAVAAkAFQAtACEAKwAvADsALgACADkA"),
+"lods": [0.856901, PackedByteArray("LgBAADEAKwAuAEQAKAArAD0AJQAoAEUAHwAlAEUAQQAfAEMAEABBAEIADQAQADYAQAANADYACQAPAAwACQAbAA8ALQAbAAkAGwAtACQAGwAkAB4AJAAtACcAJwAtACoA")],
+"material": SubResource("ShaderMaterial_tfflq"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 70,
+"vertex_data": PackedByteArray("/38AAAAA/z//fwAAAACj8f9/AAAAAKPx+7AAAL4J/z/7sAAAvgmj8fuwAAC+CefogdoAAH0l/z+B2gAAfSXn6IHaAAB9JW/eQPYAAANP/z9A9gAAA09v3kD2AAADT8DT//8AAP9//z///wAA/38jyf//AAD/f8DTQPYAAPuw/z9A9gAA+7BcvkD2AAD7sCPJgdoAAIHa/z+B2gAAgdqrsYHaAACB2ly++7AAAED2/z/7sAAAQPaomvuwAABA9qux/38AAP///z//fwAA//+omv9/AAD//6iaA08AAED2/z8DTwAAQPaomgNPAABA9quxfSUAAIHa/z99JQAAgdqrsX0lAACB2ly+vgkAAPuw/z++CQAA+7Bcvr4JAAD7sCPJAAAAAP9//z8AAAAA/38jyQAAAAD/f8DTvgkAAANP/z++CQAAA09v3r4JAAADT8DTfSUAAH0l/z99JQAAfSXn6H0lAAB9JW/eA08AAL4J/z8DTwAAvgmj8QNPAAC+Cefo/3////9/qJr/f////3+j8f9/////f6ux/3////9/5+j/f////39cvv9/////f2/e/3////9/I8n/f////3/A0/9/////f6ia/3////9/o/H/f////3+rsf9/////f+fo/3////9/XL7/f////39v3v9/////fyPJ/3////9/wNNA9gAAA08v3gNPAABA9jKb/3////9/FqH/f////39onf9/////fznt/3////9/KMoAAP9/IeAbZRvl3Z8AAP9/IeAbZSzIX1YAAP9/LMhfVvO9h1UAAP9/872HVQy3G1gAAP9/P7FPXAy3G1gAAP9/06vzYT+xT1wAAP9/KqdoadOr82EAAP9/3a0rcyqnaGkAAP9/3a0rcyvzIdIAAP9/K/Mh0mfp09gAAP9/Z+nT2PPhK9QAAP9/8+Er1E/cv84AAP9/T9y/zhvY8cgAAP9/htULwhvY8cgAAP9/XtbSt4bVC8IAAP9/G+Xdn17W0rfdrStzIeAbZSqnaGksyF9W06vzYfO9h1U/sU9cDLcbWCvzIdIb5d2fZ+nT2F7W0rfz4SvUhtULwk/cv84b2PHIKb+0Vuj06s6psB9l+5N3pE2trdJp28LM")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_o6kaq")
+
+[node name="Cone" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_n0p0p")
+skeleton = NodePath("")

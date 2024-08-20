@@ -1,0 +1,257 @@
+[gd_scene load_steps=38 format=3 uid="uid://dvumvomsfa5np"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_wjkxl"]
+[ext_resource type="MeshLibrary" uid="uid://dueo3p7wb7mte" path="res://resources/cityscape.tres" id="2_v5rvg"]
+[ext_resource type="Texture2D" uid="uid://dwjtx0urr5kub" path="res://assets/textures/concrete/concrete_col.png" id="3_ls0i2"]
+[ext_resource type="Script" path="res://scripts/start_lobby_logic.gd" id="4_etwqe"]
+[ext_resource type="PackedScene" uid="uid://cwk4w1hkeyavg" path="res://entities/window/window.tscn" id="4_xsais"]
+[ext_resource type="PackedScene" uid="uid://wmb7l5tftln7" path="res://assets/models/ceiling.glb" id="5_4ohaq"]
+[ext_resource type="PackedScene" uid="uid://dhsnjfdlsi6f6" path="res://entities/elevator_door/left_door.tscn" id="8_b53um"]
+[ext_resource type="PackedScene" uid="uid://dwa4ypljl4h13" path="res://assets/models/lobby.glb" id="9_3mkrt"]
+[ext_resource type="PackedScene" uid="uid://c8n2fe0or4mjr" path="res://entities/office_stuff/lobby_door.tscn" id="9_b311a"]
+[ext_resource type="PackedScene" uid="uid://bj852etjbtg3i" path="res://entities/elevator_door/right_door.tscn" id="9_fl47t"]
+[ext_resource type="PackedScene" uid="uid://bsg8u2ux668yf" path="res://entities/office_stuff/couch.tscn" id="10_8qr0b"]
+[ext_resource type="PackedScene" uid="uid://d1gj4nrur2flq" path="res://entities/office_stuff/coffee_table.tscn" id="11_2saym"]
+[ext_resource type="PackedScene" uid="uid://c4petue678fvq" path="res://entities/office_stuff/vending_machine.tscn" id="12_ybioq"]
+[ext_resource type="PackedScene" uid="uid://d3codxuejjllr" path="res://entities/office_stuff/shelves.tscn" id="13_yq6da"]
+[ext_resource type="PackedScene" uid="uid://k3s87nn526op" path="res://entities/office_stuff/closed_box.tscn" id="14_mhsgw"]
+[ext_resource type="PackedScene" uid="uid://oqpovy7ibcnf" path="res://entities/office_stuff/printer.tscn" id="15_rm8jr"]
+[ext_resource type="PackedScene" uid="uid://bwlrc2sivv54d" path="res://assets/models/recep_desk.glb" id="15_xt80r"]
+[ext_resource type="PackedScene" uid="uid://exxotb6t8h6m" path="res://entities/office_stuff/chair.tscn" id="16_7v52e"]
+[ext_resource type="PackedScene" uid="uid://iv1fr42cp20a" path="res://entities/office_stuff/big_plant.tscn" id="16_u4ne0"]
+[ext_resource type="PackedScene" uid="uid://rgxe4hcj46rj" path="res://assets/Office Pack-dook/Binder.glb" id="17_jf7xk"]
+[ext_resource type="PackedScene" uid="uid://bouguvpyq5skw" path="res://entities/office_stuff/table.tscn" id="17_up6ct"]
+[ext_resource type="PackedScene" uid="uid://dc0ti0splvdhw" path="res://assets/Office Pack-dook/Computer.glb" id="18_xy5pg"]
+[ext_resource type="PackedScene" uid="uid://vxrms6jxv5hj" path="res://assets/Office Pack-dook/Houseplant.glb" id="19_yun0k"]
+[ext_resource type="PackedScene" uid="uid://wkavbs64i48c" path="res://assets/Office Pack-dook/Houseplant-VtJh4Irl4w.glb" id="20_ydu7i"]
+[ext_resource type="PackedScene" uid="uid://d3i1202rcqnfr" path="res://assets/Office Pack-dook/Houseplant-bfLOqIV5uP.glb" id="24_c7dyq"]
+[ext_resource type="PackedScene" uid="uid://dc2s3hj7s6rvk" path="res://assets/Office Pack-dook/Light Desk.glb" id="25_pk3qk"]
+[ext_resource type="PackedScene" uid="uid://ch3kokxhh1vs4" path="res://assets/Office Pack-dook/Magazine.glb" id="26_2qw40"]
+[ext_resource type="PackedScene" uid="uid://wov8424wou7t" path="res://assets/Office Pack-dook/Medium Book Shelf.glb" id="27_el3vq"]
+[ext_resource type="PackedScene" uid="uid://dtv4u4qsfo1j3" path="res://assets/Office Pack-dook/clipboard.glb" id="28_2bww4"]
+[ext_resource type="PackedScene" uid="uid://cmbotrmcef87r" path="res://entities/player/big_player.tscn" id="29_glxts"]
+[ext_resource type="PackedScene" uid="uid://c2cpquwo12c8c" path="res://helper_scenes/weather.tscn" id="31_7m50m"]
+[ext_resource type="PackedScene" uid="uid://dbv6pmwxusqhs" path="res://entities/security_camera/security_camera.tscn" id="32_c4d1q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hwq6u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ui735"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6io7j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxp00"]
+albedo_texture = ExtResource("3_ls0i2")
+normal_texture = SubResource("CompressedTexture2D_6io7j")
+ao_enabled = true
+ao_texture = SubResource("CompressedTexture2D_hwq6u")
+heightmap_scale = 1.0
+heightmap_texture = SubResource("CompressedTexture2D_ui735")
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e3gg2"]
+material = SubResource("StandardMaterial3D_mxp00")
+size = Vector2(300, 300)
+
+[node name="Level" type="Node3D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_wjkxl")
+floor_title = "Lobby"
+next_floor = "level2"
+player = NodePath("BigPlayer")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -1, 0)
+mesh_library = ExtResource("2_v5rvg")
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(0, 1, 0, 65535, 1, 26, 65535, 65534, 27, 0, 65534, 24, 2, 1, 23, 65534, 0, 1441822, 65533, 65534, 1048607, 65534, 65535, 1048596, 65534, 65534, 1048602, 65530, 2, 1048602, 65530, 65533, 1048602, 65533, 65531, 1048602, 2, 65530, 1048602, 4, 65533, 1048602, 1, 5, 1048602, 65531, 6, 1048602, 6, 4, 26, 0, 65529, 26, 65531, 65529, 1441818, 65531, 65531, 1441816, 1, 65531, 655384, 65532, 3, 1048600, 65535, 6, 1048598, 6, 65535, 22, 65535, 65531, 21, 65530, 65535, 1441813, 65533, 2, 655381, 2, 65535, 1048597, 1, 65533, 1048597, 0, 65532, 1048598, 1, 65535, 1048582, 0, 2, 1441798, 1, 0, 1441797, 65533, 65535, 5, 65534, 1, 1441792, 65535, 65533, 1441793, 2, 65534, 1441794, 65533, 0, 1441795, 1, 2, 1441795, 3, 0, 655363, 2, 0, 1048580, 65533, 1, 5, 65534, 65533, 5, 1, 1, 2, 0, 65533, 0, 1, 65534, 8, 2, 65533, 6, 3, 65535, 1048582, 65532, 1, 655366, 65532, 65534, 1441798, 65533, 65533, 655366, 65535, 2, 1048581, 65534, 2, 5, 65532, 2, 5, 65532, 0, 655365, 65532, 65535, 655368, 65531, 65535, 1048581, 65531, 0, 1048581, 2, 3, 1048599, 4, 1, 23, 4, 65535, 1441815, 3, 65532, 1441815, 65535, 65532, 655383, 65531, 65532, 1048599, 65534, 65530, 1048599, 65535, 65530, 23, 65533, 4, 23, 65534, 5, 1441815, 0, 4, 655383, 3, 5, 655382, 6, 3, 655382, 7, 1, 655382, 7, 65533, 655382, 5, 65531, 655382, 3, 65529, 655382, 5, 65533, 655384, 5, 1, 655385, 6, 65534, 655385, 65534, 65532, 655385, 65534, 3, 655385, 3, 3, 655385, 3, 65530, 655385, 65531, 65533, 655385, 65531, 4, 655385, 3, 2, 655385, 2, 2, 655386, 3, 1, 655383, 65534, 4, 655386, 1, 4, 1048602, 4, 2, 26, 4, 65534, 1441818, 2, 65532, 1441818, 1, 3, 655387, 65535, 4, 655387, 4, 5, 655387, 5, 65535, 1048603, 5, 65532, 27, 3, 65531, 1441819, 1, 65530, 1441819, 6, 2, 1441823, 6, 0, 655391, 4, 65531, 31, 65533, 65530, 31, 65530, 1, 1048607, 65530, 3, 655381, 65535, 5, 1441824, 65533, 3, 655392, 65535, 3, 655392, 1, 65532, 655360, 0, 65530, 655360, 6, 65533, 1048576, 5, 4, 1048576, 2, 5, 0, 0, 6, 0, 65532, 5, 1441792, 65532, 4, 1441796, 65531, 2, 655364, 65531, 65534, 655364, 65533, 65532, 655364, 65534, 65531, 655364, 4, 65532, 655364, 6, 65531, 1441798, 4, 65529, 6, 65533, 65529, 6, 5, 5, 7, 5, 3, 7, 5, 2, 7, 5, 65534, 7, 2, 65531, 3, 0, 65531, 7, 65532, 65532, 7, 65533, 5, 1441806, 0, 5, 7, 1, 6, 7, 4, 6, 0, 3, 6, 9, 2, 6, 3, 4, 4, 12, 3, 4, 13, 2, 4, 14, 5, 0, 15, 3, 65533, 18, 3, 65534, 19, 65530, 65534, 21, 65530, 0, 21, 65534, 6, 1441813, 65532, 65530, 655381, 65530, 65532, 655381, 65535, 65529, 655377, 65535, 65528, 655386, 0, 65528, 655387, 1, 65528, 655360, 65534, 65528, 655381, 2, 65529, 1048597, 1, 65529, 1048598, 65534, 65529, 1048595, 65532, 65529, 1048595, 65529, 65535, 1048608, 65528, 65535, 1048608, 65528, 0, 8, 65529, 0, 1048576, 65528, 65534, 1048576, 65528, 1, 1048602, 65529, 1, 1441813, 65529, 2, 1048608, 65529, 3, 1048608, 65529, 4, 1048576, 65529, 65534, 1048608, 65529, 65533, 1048576, 65529, 65532, 1048608, 65529, 65531, 1441800, 65530, 65530, 1048576, 65530, 5, 8, 65532, 6, 1048608, 65533, 6, 1048597, 65534, 7, 1048608, 65535, 7, 1048597, 0, 7, 1048608, 1, 7, 0, 7, 0, 1048608, 7, 65535, 1441792, 7, 65534, 1048608, 6, 65532, 1048608, 5, 65530, 1048608, 65531, 3, 1048576, 65531, 5, 1048579, 65530, 4, 3, 4, 3, 3, 4, 0, 3, 4, 65530, 3, 65531, 65530, 1048602, 65532, 65531, 1441800, 6, 1, 1048602, 65530, 65531, 1048602)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_e3gg2")
+skeleton = NodePath("../..")
+
+[node name="OfficeFloor" type="Node3D" parent="." node_paths=PackedStringArray("right_door")]
+script = ExtResource("4_etwqe")
+right_door = NodePath("RightDoor")
+
+[node name="Windows" type="Node3D" parent="OfficeFloor"]
+
+[node name="Window1" parent="OfficeFloor/Windows" instance=ExtResource("4_xsais")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2563, 2.01599, -6.45471)
+size = Vector3(0.1, 2.056, 5.12905)
+
+[node name="Window2" parent="OfficeFloor/Windows" instance=ExtResource("4_xsais")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2563, 2.01599, 6.45233)
+size = Vector3(0.1, 2.056, 5.15639)
+
+[node name="Window3" parent="OfficeFloor/Windows" instance=ExtResource("4_xsais")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2324, 2.01599, -6.47815)
+size = Vector3(0.1, 2.056, 5.08218)
+
+[node name="Window4" parent="OfficeFloor/Windows" instance=ExtResource("4_xsais")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2324, 2.01599, 6.46112)
+size = Vector3(0.1, 2.056, 5.13882)
+
+[node name="Window5" parent="OfficeFloor/Windows" instance=ExtResource("4_xsais")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2405, 2.01599, 10.2522)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="Window6" parent="OfficeFloor/Windows" instance=ExtResource("4_xsais")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.25527, 2.01599, 10.2522)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="Window7" parent="OfficeFloor/Windows" instance=ExtResource("4_xsais")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.2405, 2.01599, -10.2827)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="Window8" parent="OfficeFloor/Windows" instance=ExtResource("4_xsais")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.25527, 2.01599, -10.2827)
+size = Vector3(0.1, 2.056, 7.554)
+
+[node name="ceiling" parent="OfficeFloor" instance=ExtResource("5_4ohaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.93064, 0)
+
+[node name="LeftDoor" parent="OfficeFloor" instance=ExtResource("8_b53um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70448, 1.49811, 1.78)
+end_door = true
+wait_for_call = true
+
+[node name="RightDoor" parent="OfficeFloor" instance=ExtResource("9_fl47t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70448, 1.498, -1.78)
+end_door = true
+wait_for_call = true
+
+[node name="Windows2" parent="OfficeFloor" instance=ExtResource("9_b311a")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.2195, 1.44796, 0.0368549)
+
+[node name="Couch" parent="OfficeFloor" instance=ExtResource("10_8qr0b")]
+transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, -8.7285, 0, -8.12746)
+
+[node name="Couch2" parent="OfficeFloor" instance=ExtResource("10_8qr0b")]
+transform = Transform3D(9.17939e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, 9.17939e-08, -4.82244, 0, -8.12746)
+
+[node name="CoffeeTable" parent="OfficeFloor" instance=ExtResource("11_2saym")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.73599, 4.76837e-07, -8.27276)
+
+[node name="Couch3" parent="OfficeFloor" instance=ExtResource("10_8qr0b")]
+transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, -8.7285, 0, 7.43044)
+
+[node name="Couch4" parent="OfficeFloor" instance=ExtResource("10_8qr0b")]
+transform = Transform3D(9.17939e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, 9.17939e-08, -4.82244, 0, 7.43044)
+
+[node name="CoffeeTable2" parent="OfficeFloor" instance=ExtResource("11_2saym")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.73599, 4.76837e-07, 7.28515)
+
+[node name="VendingMachine" parent="OfficeFloor" instance=ExtResource("12_ybioq")]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 9.18584, 0, 9.29564)
+
+[node name="VendingMachine2" parent="OfficeFloor" instance=ExtResource("12_ybioq")]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 9.18584, 0, 5.78882)
+
+[node name="Shelves" parent="OfficeFloor" instance=ExtResource("13_yq6da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.29696, 0, 7.56552)
+
+[node name="ClosedBox" parent="OfficeFloor" instance=ExtResource("14_mhsgw")]
+transform = Transform3D(1.77576, 0, -0.920152, 0, 2, 0, 0.920152, 0, 1.77576, 8.90795, 0.00012207, 3.38407)
+
+[node name="ClosedBox2" parent="OfficeFloor" instance=ExtResource("14_mhsgw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.49292, 0, 4.10149)
+
+[node name="ClosedBox3" parent="OfficeFloor" instance=ExtResource("14_mhsgw")]
+transform = Transform3D(-0.351558, 0, -1.96886, 0, 2, 0, 1.96886, 0, -0.351558, 9.65848, 0.00012207, 3.43926)
+
+[node name="lobby" parent="OfficeFloor" instance=ExtResource("9_3mkrt")]
+
+[node name="recep_desk" parent="OfficeFloor" instance=ExtResource("15_xt80r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0128441, 9.53674e-07, -0.0117097)
+
+[node name="Chair" parent="OfficeFloor" instance=ExtResource("16_7v52e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.21041, -4.76837e-07, -1.30984)
+
+[node name="Chair2" parent="OfficeFloor" instance=ExtResource("16_7v52e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.21041, -4.76837e-07, 1.21848)
+
+[node name="Binder" parent="OfficeFloor" instance=ExtResource("17_jf7xk")]
+transform = Transform3D(-0.000276337, -0.999955, 0.00945546, -0.0292113, 0.0094595, 0.999529, -0.999573, -9.38384e-10, -0.0292127, 0.883344, 1.04765, 1.35105)
+
+[node name="Computer" parent="OfficeFloor" instance=ExtResource("18_xy5pg")]
+transform = Transform3D(0.0042935, 0, 0.999991, 0, 1, 0, -0.999991, 0, 0.0042935, 0.424284, 1, -1.18089)
+
+[node name="Root Scene" parent="OfficeFloor" instance=ExtResource("19_yun0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.403192, 1.89543, -2.23643)
+
+[node name="Root Scene2" parent="OfficeFloor" instance=ExtResource("20_ydu7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.222961, 1.89543, -0.268961)
+
+[node name="Printer" parent="OfficeFloor" instance=ExtResource("15_rm8jr")]
+transform = Transform3D(-3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 8.9449, 0.98232, -4.67919)
+
+[node name="Printer2" parent="OfficeFloor" instance=ExtResource("15_rm8jr")]
+transform = Transform3D(-3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 8.9449, 0.98232, -6.35851)
+
+[node name="Printer3" parent="OfficeFloor" instance=ExtResource("15_rm8jr")]
+transform = Transform3D(-3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 8.9449, 0.98232, -8.05406)
+
+[node name="BigPlant" parent="OfficeFloor" instance=ExtResource("16_u4ne0")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 7.39043, 0, -9.06985)
+
+[node name="BigPlant2" parent="OfficeFloor" instance=ExtResource("16_u4ne0")]
+transform = Transform3D(0.182371, 0, -0.238203, 0, 0.3, 0, 0.238203, 0, 0.182371, -3.60248, 0, -9.07671)
+
+[node name="BigPlant3" parent="OfficeFloor" instance=ExtResource("16_u4ne0")]
+transform = Transform3D(0.0311711, 0, -0.298376, 0, 0.3, 0, 0.298376, 0, 0.0311711, -9.095, 0, -6.02197)
+
+[node name="BigPlant4" parent="OfficeFloor" instance=ExtResource("16_u4ne0")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -3.01846, 2.38419e-07, 8.67549)
+
+[node name="Table" parent="OfficeFloor" instance=ExtResource("17_up6ct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0327924, 0, 9.21812)
+
+[node name="Root Scene3" parent="OfficeFloor" instance=ExtResource("24_c7dyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115806, 1.89543, 2.13536)
+
+[node name="Root Scene4" parent="OfficeFloor" instance=ExtResource("25_pk3qk")]
+transform = Transform3D(-0.455669, 0, 0.890149, 0, 1, 0, -0.890149, 0, -0.455669, 0.182373, 1, 1.82162)
+
+[node name="Magazine" parent="OfficeFloor" instance=ExtResource("26_2qw40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.629604, 0.95, 9.22847)
+
+[node name="Root Scene5" parent="OfficeFloor" instance=ExtResource("27_el3vq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.417991, 0, -9.55697)
+
+[node name="clipboard" parent="OfficeFloor" instance=ExtResource("28_2bww4")]
+transform = Transform3D(-4.30281e-08, -0.984368, -0.176123, 1, -4.37114e-08, 0, -7.69857e-09, -0.176123, 0.984368, -6.83971, 0.418536, -8.64076)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -11.5
+offset_right = 21.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Label"
+
+[node name="BigPlayer" parent="." instance=ExtResource("29_glxts")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.31753, 0, -0.00254136)
+
+[node name="Weather" parent="." instance=ExtResource("31_7m50m")]
+
+[node name="SecurityCamera" parent="." instance=ExtResource("32_c4d1q")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0.25008, 3.52423, 9.3139)
+
+[node name="SecurityCamera2" parent="." instance=ExtResource("32_c4d1q")]
+transform = Transform3D(0.5, 0, 8.74228e-08, 0, 0.5, 0, -8.74228e-08, 0, 0.5, 0.25008, 3.52423, -8.77795)
+animation_offset = 6
+
+[connection signal="player_entered_elevator" from="OfficeFloor/RightDoor" to="." method="_on_right_door_player_entered_elevator"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbv6pmwxusqhs"]
+
+[ext_resource type="Script" path="res://entities/security_camera/security_camera.gd" id="1_wt551"]
+[ext_resource type="PackedScene" uid="uid://buey1atu6qnj7" path="res://assets/models/camera.glb" id="2_m1wcn"]
+[ext_resource type="AudioStream" uid="uid://bjyp5k2y08jte" path="res://assets/sounds/sfx/security_beep.mp3" id="4_ba7yo"]
+[ext_resource type="PackedScene" uid="uid://mp0270x8lggq" path="res://entities/security_camera/cone.tscn" id="4_pwmxo"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4nipc"]
+lightmap_size_hint = Vector2i(6, 10)
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b6335"]
+points = PackedVector3Array(-1.96645, -3.5, -0.000385046, -1.81708, -3.5, -0.752627, -1.81708, -3.5, 0.752242, -0.000385046, 2.5, -0.000385046, -1.39053, -3.5, -1.39053, -1.39053, -3.5, 1.39015, 1.96645, -3.5, -0.000385046, 1.8167, -3.5, -0.752627, 1.39015, -3.5, -1.39053, 0.752242, -3.5, -1.81708, -0.000385046, -3.5, -1.96645, -0.752627, -3.5, -1.81708, -0.752627, -3.5, 1.8167, -0.000385046, -3.5, 1.96645, 0.752242, -3.5, 1.8167, 1.39015, -3.5, 1.39015, 1.8167, -3.5, 0.752242)
+
+[sub_resource type="Animation" id="Animation_hkj8u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraBodyPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qvquu"]
+resource_name = "cycle"
+length = 20.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraBodyPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15, 20),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.39626, 0, 0), Vector3(0, 0, 0), Vector3(1.39626, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(10),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmvgk"]
+_data = {
+"RESET": SubResource("Animation_hkj8u"),
+"cycle": SubResource("Animation_qvquu")
+}
+
+[node name="SecurityCamera" type="Node3D" groups=["SecurityCameras"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_wt551")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486722, -0.245088)
+mesh = SubResource("CylinderMesh_4nipc")
+
+[node name="CameraBodyPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.24431)
+
+[node name="camera" parent="CameraBodyPivot" instance=ExtResource("2_m1wcn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.24431)
+
+[node name="ShootingPoint" type="Node3D" parent="CameraBodyPivot/camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.60167)
+
+[node name="VisionArea" type="Area3D" parent="CameraBodyPivot/camera/ShootingPoint"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Cone" parent="CameraBodyPivot/camera/ShootingPoint/VisionArea" instance=ExtResource("4_pwmxo")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 2.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraBodyPivot/camera/ShootingPoint/VisionArea"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 2.5)
+shape = SubResource("ConvexPolygonShape3D_b6335")
+
+[node name="VisionRayCast" type="RayCast3D" parent="CameraBodyPivot/camera/ShootingPoint"]
+target_position = Vector3(0, 0, -100)
+hit_from_inside = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qmvgk")
+}
+
+[node name="RayCastTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_ba7yo")
+volume_db = -10.0
+
+[connection signal="timeout" from="RayCastTimer" to="." method="_on_ray_cast_timer_timeout"]
