@@ -10,7 +10,11 @@ sky_material = SubResource("PanoramaSkyMaterial_mjuis")
 
 [sub_resource type="Environment" id="Environment_ofhxj"]
 background_mode = 2
+background_energy_multiplier = 0.75
 sky = SubResource("Sky_xal5h")
+ambient_light_source = 2
+ambient_light_color = Color(0.489622, 0.489622, 0.489622, 1)
+ambient_light_energy = 0.25
 fog_enabled = true
 fog_mode = 1
 fog_density = 1.0
