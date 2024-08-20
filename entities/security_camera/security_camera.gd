@@ -31,7 +31,6 @@ func _on_ray_cast_timer_timeout() -> void:
 					if hit_counter > Globals.camera_difficulty:
 						caught_player.emit()
 	hit_counter = max(0, hit_counter - 1)
-	print(hit_counter)
 
 
 func _on_beep_timer_timeout() -> void:

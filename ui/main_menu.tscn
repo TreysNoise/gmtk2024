@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://l4bwntbiswdb"]
+[gd_scene load_steps=4 format=3 uid="uid://l4bwntbiswdb"]
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_2jout"]
+[ext_resource type="Texture2D" uid="uid://c5lidv61fs4js" path="res://assets/textures/title_art.png" id="2_il2um"]
 [ext_resource type="Theme" uid="uid://d20j2stg43jmk" path="res://resources/main_theme.tres" id="2_ywx3k"]
 
 [node name="MainMenu" type="Control"]
@@ -19,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_il2um")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,6 +40,8 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_ywx3k")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
 text = "Skyscraper Heist"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]

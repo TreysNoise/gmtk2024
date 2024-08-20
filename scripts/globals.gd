@@ -5,8 +5,8 @@ signal money_picked_up
 var captured_mouse_once: bool = false
 
 var money_collected: int = 0
-var max_money: int = 5
-var camera_difficulty: int = 5
+var max_money: int = 6
+var camera_difficulty: int = 2
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
